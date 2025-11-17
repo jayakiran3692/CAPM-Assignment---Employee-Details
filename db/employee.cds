@@ -3,7 +3,6 @@ namespace ust.jayakiran.yadlapalli.db;
 using { cuid, sap.common.Currencies } from '@sap/cds/common';
 
 using { ust.jayakiran.yadlapalli.reuse as ust } from './common';
-// comments
 entity EmployeeSet : cuid {
     nameFirst   : String(40);
     nameLast    : String(40);
