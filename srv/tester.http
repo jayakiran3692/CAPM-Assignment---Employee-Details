@@ -1,0 +1,124 @@
+@baseUrl = http://localhost:4004/odata/v4/employee-set
+
+###
+
+GET {{baseUrl}}/
+Accept: application/json
+
+###
+
+GET {{baseUrl}}/$metadata
+Accept: application/xml
+
+###
+
+GET {{baseUrl}}/EmployeeSet
+Accept: application/json
+
+###
+
+GET {{baseUrl}}/EmployeeSet?$filter=startswith(nameFirst,'S')
+Accept: application/json
+
+###
+
+GET {{baseUrl}}/EmployeeSet?$orderby=salaryAmount&$top=2
+Accept: application/json
+
+###
+
+POST {{baseUrl}}/EmployeeSet
+Content-Type: application/json
+
+{
+  "nameFirst": "CreatePass",
+  "nameMiddle": "P",
+  "nameLast": "One",
+  "nameInitials": "CP",
+  "gender": "M",
+  "language": "E",
+  "phoneNumber": "+1 700 000 0001",
+  "email": "createpass1@example.com",
+  "loginName": "CPASS1",
+  "CURRENCY_CODE_code": "USD",
+  "salaryAmount": 45000.00,
+  "accountNumber": "1000111122223333",
+  "bankId": "12100035",
+  "bankName": "My Bank of San Francisco"
+}
+
+###
+
+POST {{baseUrl}}/EmployeeSet
+Content-Type: application/json
+
+{
+  "nameFirst": "CreateFailUSDHigh",
+  "nameMiddle": "H",
+  "nameLast": "Two",
+  "nameInitials": "CFH",
+  "gender": "F",
+  "language": "E",
+  "phoneNumber": "+1 700 000 0002",
+  "email": "createfailusd@example.com",
+  "loginName": "CFUSD1",
+  "CURRENCY_CODE_code": "USD",
+  "salaryAmount": 75000.00,
+  "accountNumber": "2000222233334444",
+  "bankId": "51000067",
+  "bankName": "My Bank of Antioch"
+}
+
+###
+
+POST {{baseUrl}}/EmployeeSet
+Content-Type: application/json
+
+{
+  "nameFirst": "CreateFailEUR",
+  "nameMiddle": "E",
+  "nameLast": "Three",
+  "nameInitials": "CFE",
+  "gender": "M",
+  "language": "E",
+  "phoneNumber": "+44 700 000 0004",
+  "email": "createfaileur@example.com",
+  "loginName": "CFEUR1",
+  "CURRENCY_CODE_code": "EUR",
+  "salaryAmount": 30000.00,
+  "accountNumber": "3000333344445555",
+  "bankId": "99999888",
+  "bankName": "Deutsches Geldinstitut"
+}
+
+###
+
+PATCH {{baseUrl}}/EmployeeSet('02BD2137-0890-1EEA-A6C2-BB55C197C7FB')
+Content-Type: application/json
+
+{
+  "salaryAmount": 48000.00,
+  "CURRENCY_CODE_code": "USD",
+  "phoneNumber": "+15 224 374 5320"
+}
+
+###
+
+PATCH {{baseUrl}}/EmployeeSet('02BD2137-0890-1EEA-A6C2-BB55C197C7FB')
+Content-Type: application/json
+
+{
+  "loginName": "NEWLOGIN123",
+  "salaryAmount": 45000.00,
+  "CURRENCY_CODE_code": "USD"
+}
+
+###
+
+DELETE {{baseUrl}}/EmployeeSet('02BD2137-0890-1EEA-A6C2-BB55C19827FB')
+Accept: application/json
+
+###
+
+DELETE {{baseUrl}}/EmployeeSet('02BD2137-0890-1EEA-A6C2-BB55C19787FB')
+Accept: application/json
